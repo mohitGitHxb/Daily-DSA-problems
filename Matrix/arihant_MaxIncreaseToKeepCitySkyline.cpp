@@ -15,7 +15,7 @@ Question:
 
 Solution's Complexities:
   T.C. -O(N^2) where N is the size of matrix.
-  S.C. -O(1) as all data structures are of fixed length.
+  S.C. -O(N) as all data structures is defined by size of intial matrix.
 
 Explanation:
 
