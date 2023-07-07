@@ -1,3 +1,8 @@
+LEETCODE PROBLEM NO:51
+
+
+
+
 class Solution {
 private: 
     bool isSafePlace(int n, vector<string>& nQueens, int row, int col){
@@ -39,3 +44,5 @@ public:
         return output;
     }
 };
+
+
