@@ -1,0 +1,37 @@
+https://practice.geeksforgeeks.org/problems/permutations-of-a-given-string2041/1?page=7&curated[]=7&sortBy=submissions
+
+TC (n!*n)
+SC (n!*n)
+
+void solve(string S, int i, vector<string> &ans){
+	       if(i>= S.size()){
+	           ans.push_back(S);
+	           return;
+	       }
+	       
+	       for(int j =i; j< S.size(); j++){
+	           swap(S[j], S[i]);
+	           solve(S, i+1, ans);
+	           swap(S[j], S[i]);
+	       }
+	   }
+		vector<string>find_permutation(string S)
+		{
+		    // Code here there
+		    vector<string> ans;
+		    int i =0;
+		    solve(S, i, ans);
+		    sort(ans.begin(),ans.end());
+		    ans.erase(unique(ans.begin(), ans.end()), ans.end());
+		    return ans;
+		}
+
+
+find_permutation calls the solve function with the input string S, starting index i=0, and the ans vector passed by reference.
+The solve function checks if the current index i is equal to or greater than the size of the string S. If it is, it means that all characters have been fixed, and it adds the resulting permutation S to the ans vector.
+Otherwise, it iterates from index i to the end of the string S.
+Inside the loop, it swaps the characters at indices j and i in the string S, effectively fixing the character at index i.
+It then recursively calls the solve function with the updated string S and the incremented index i+1.
+After the recursive call, it swaps the characters back to restore the original string S before moving on to the next iteration of the loop. This ensures that the string remains unmodified for subsequent iterations and recursive calls.
+After the solve function completes, it sorts the ans vector in lexicographic order.
+It then removes any duplicate permutations from the ans vector using the unique function in combination with the erase function
